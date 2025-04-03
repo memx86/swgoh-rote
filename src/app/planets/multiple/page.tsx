@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
-import Planet from '@/components/Planet/Planet';
-import Loader from '@/components/Loader/Loader';
 import getSheets from '@/services/getSheets';
+import Loader from '@/components/Loader/Loader';
+import Planets from '@/components/Planets/Planets';
 import s from './page.module.scss';
 
 export default async function MultiplePlanets() {
@@ -13,14 +13,11 @@ export default async function MultiplePlanets() {
     name: row.get('name'),
     relic: row.get('relic'),
     amount: row.get('amount'),
-    rowNumber: row.rowNumber,
   }));
   return (
     <div className={s.container}>
       <Suspense fallback={<Loader />}>
-        <Planet allUnits={allUnits} number={1} />
-        <Planet allUnits={allUnits} number={2} />
-        <Planet allUnits={allUnits} number={3} />
+        <Planets units={allUnits} />
       </Suspense>
     </div>
   );

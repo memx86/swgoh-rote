@@ -1,12 +1,8 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import s from './Planet.module.scss';
 
 type Props = {
-  name?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  name: string;
   allUnits: {
     planet: string;
     name: string;
@@ -14,22 +10,15 @@ type Props = {
     rowNumber: number;
     amount: number;
   }[];
-  number?: number;
 };
 
-const Planet = ({ name, allUnits, number }: Props) => {
-  const searchParams = useSearchParams();
-  const planetName = name ? name : searchParams.get(`planet${number}`);
-  if (number === 3 && !planetName) {
-    return <></>;
-  }
-  console.log(planetName);
-  const units = allUnits.filter(row => row.planet === planetName);
+const Planet = ({ name, allUnits }: Props) => {
+  const units = allUnits.filter(row => row.planet === name);
   const relic = units.at(0)?.relic;
   return (
     <div className={s.page}>
       <p>
-        Units for {planetName} relic {relic}
+        Units for {name} relic {relic}
       </p>
       <table className={s.table}>
         <thead>

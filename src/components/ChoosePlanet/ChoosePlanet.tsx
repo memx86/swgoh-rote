@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { sheets } from '@/app/action';
 import s from './ChoosePlanet.module.scss';
 
 type Props = {
@@ -124,6 +125,9 @@ function ChoosePlanet({ planets }: Props) {
         </tbody>
       </table>
       {multiple && <button type="submit">Find</button>}
+      <button formAction={sheets} className={s.reload}>
+        Reload data
+      </button>
     </form>
   );
 }
