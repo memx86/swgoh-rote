@@ -3,7 +3,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const EMAIL = process.env.SERVICE_EMAIL;
-const KEY = process.env.SERVICE_PRIVATE_KEY;
+const { KEY } = JSON.parse(process.env.SERVICE_PRIVATE_KEY ?? '');
 const SHEET_ID = process.env.SHEET_ID ?? '';
 
 const jwt = new JWT({
