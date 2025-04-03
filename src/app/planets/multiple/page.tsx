@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import Planet from '@/components/Planet/Planet';
+import Loader from '@/components/Loader/Loader';
 import getSheets from '@/services/getSheets';
 import s from './page.module.scss';
 
@@ -15,9 +17,11 @@ export default async function MultiplePlanets() {
   }));
   return (
     <div className={s.container}>
-      <Planet allUnits={allUnits} number={1} />
-      <Planet allUnits={allUnits} number={2} />
-      <Planet allUnits={allUnits} number={3} />
+      <Suspense fallback={<Loader />}>
+        <Planet allUnits={allUnits} number={1} />
+        <Planet allUnits={allUnits} number={2} />
+        <Planet allUnits={allUnits} number={3} />
+      </Suspense>
     </div>
   );
 }
