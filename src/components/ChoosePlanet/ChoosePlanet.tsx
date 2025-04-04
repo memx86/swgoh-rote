@@ -63,10 +63,11 @@ function ChoosePlanet({ planets }: Props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={s.form}>
       <label>
-        Select multiple planets (max 3)
+        Select multiple planets (2-3)
         <input
+          className={s.multiple}
           type="checkbox"
           name="multiple"
           checked={multiple}
@@ -76,10 +77,10 @@ function ChoosePlanet({ planets }: Props) {
       <table className={s.table}>
         <thead>
           <tr>
-            <th className={s.cell}>Dark side</th>
-            <th className={s.cell}>Neutral</th>
-            <th className={s.cell}>Light side</th>
-            <th className={s.cell}> Bonus</th>
+            <th className={`${s.cell} ${s.th}`}>Dark side</th>
+            <th className={`${s.cell} ${s.th}`}>Neutral</th>
+            <th className={`${s.cell} ${s.th}`}>Light side</th>
+            <th className={`${s.cell} ${s.th}`}> Bonus</th>
           </tr>
         </thead>
         <tbody>
@@ -102,15 +103,19 @@ function ChoosePlanet({ planets }: Props) {
                               {name}
                             </Link>
                           ) : (
-                            <label className={s.label}>
-                              {name}
+                            <>
                               <input
+                                id={name}
                                 type="checkbox"
                                 name={name}
                                 checked={checkedPlanets[name]}
                                 onChange={onChange}
+                                className={s.checkboxHidden}
                               />
-                            </label>
+                              <label htmlFor={name} className={s.label}>
+                                {name}
+                              </label>
+                            </>
                           )}
                         </td>
                       );
@@ -124,9 +129,13 @@ function ChoosePlanet({ planets }: Props) {
           })}
         </tbody>
       </table>
-      {multiple && <button type="submit">Find</button>}
+      {multiple && (
+        <button type="submit" className={s.submit}>
+          Go to planets
+        </button>
+      )}
       <button formAction={sheets} className={s.reload}>
-        Reload data
+        ↺
       </button>
     </form>
   );

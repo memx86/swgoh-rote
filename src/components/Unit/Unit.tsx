@@ -19,13 +19,13 @@ const Unit = ({ name, members }: Props) => {
   return (
     <div className={s.page}>
       <p>
-        Members who has {name} relic {relic}
+        Members who has {name} {relic > 0 ? `relic ${relic}` : ''}
       </p>
       <table className={s.table}>
         <thead>
           <tr>
-            <th className={s.cell}>Nickname</th>
-            <th className={s.cell}>Relic</th>
+            <th className={`${s.cell} ${s.th}`}>Nickname</th>
+            <th className={`${s.cell} ${s.th}`}>Relic</th>
           </tr>
         </thead>
         <tbody>

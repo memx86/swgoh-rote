@@ -44,9 +44,9 @@ export default function Planets({ units }: Props) {
       <table className={s.table}>
         <thead>
           <tr>
-            <th className={s.cell}>Unit name</th>
-            <th className={s.cell}>Amount</th>
-            <th className={s.cell}>Relic</th>
+            <th className={`${s.cell} ${s.th}`}>Unit name</th>
+            <th className={`${s.cell} ${s.th}`}>Amount</th>
+            <th className={`${s.cell} ${s.th}`}>Relic</th>
           </tr>
         </thead>
         {convergedUnitsArr.map(

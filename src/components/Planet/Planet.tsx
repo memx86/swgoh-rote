@@ -23,8 +23,8 @@ const Planet = ({ name, allUnits }: Props) => {
       <table className={s.table}>
         <thead>
           <tr>
-            <th className={s.cell}>Unit name</th>
-            <th className={s.cell}>Amount</th>
+            <th className={`${s.cell} ${s.th}`}>Unit name</th>
+            <th className={`${s.cell} ${s.th}`}>Amount</th>
           </tr>
         </thead>
         <tbody>

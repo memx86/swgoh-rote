@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1rem;
+}
+
+.table {
+    margin-top: 1rem;
 }
 
 .table,
@@ -12,6 +17,10 @@
 
 .cell {
     text-align: center;
+}
+
+.th {
+    padding: 0.5rem;
 }
 
 .link {

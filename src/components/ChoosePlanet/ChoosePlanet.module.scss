@@ -1,16 +1,24 @@
-.page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.form {
+    margin-top: 1rem;
 }
 
-.table,
-.cell {
+.multiple {
+    margin-left: 0.5rem;
+}
+
+.table {
+    margin-top: 1rem;
     border-collapse: collapse;
     border: 1px solid;
 }
 
+.th {
+    padding: 0.5rem;
+}
+
 .cell {
+    border-collapse: collapse;
+    border: 1px solid;
     text-align: center;
 }
 
@@ -28,10 +36,65 @@
 .label {
     display: block;
     padding: 0.5rem;
+
+    &:hover,
+    &:focus {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+}
+
+.checkboxHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+
+    &:checked+.label {
+        color: royalblue;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+
+    &:focus+.label {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+}
+
+.submit {
+    background-color: transparent;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+
+    &:hover,
+    &:focus {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
 }
 
 .reload {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 0.5rem;
+    top: 0.5rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    font-size: 1.5em;
+
+    &:hover,
+    &:focus {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
 }
