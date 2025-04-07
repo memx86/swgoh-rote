@@ -37,7 +37,7 @@ export default function Planets({ units }: Props) {
   return (
     <div className={s.page}>
       <p>
-        Untis for planets
+        Units for planets
         {` ${planet1} ${planet2} `}
         {planet3}
       </p>

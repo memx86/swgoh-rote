@@ -1,0 +1,44 @@
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.nav {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+
+    &:hover,
+    &:focus {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:hover,
+    &:focus {
+        color: orange;
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+}
+
+.home {
+    padding: 0.5rem;
+    font-size: 2.5rem;
+}

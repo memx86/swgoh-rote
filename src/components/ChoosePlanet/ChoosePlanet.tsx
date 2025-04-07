@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { sheets } from '@/app/action';
 import s from './ChoosePlanet.module.scss';
 
 type Props = {
@@ -80,7 +79,7 @@ function ChoosePlanet({ planets }: Props) {
             <th className={`${s.cell} ${s.th}`}>Dark side</th>
             <th className={`${s.cell} ${s.th}`}>Neutral</th>
             <th className={`${s.cell} ${s.th}`}>Light side</th>
-            <th className={`${s.cell} ${s.th}`}> Bonus</th>
+            <th className={`${s.cell} ${s.th}`}>Bonus</th>
           </tr>
         </thead>
         <tbody>
@@ -134,9 +133,6 @@ function ChoosePlanet({ planets }: Props) {
           Go to planets
         </button>
       )}
-      <button formAction={sheets} className={s.reload}>
-        ↺
-      </button>
     </form>
   );
 }

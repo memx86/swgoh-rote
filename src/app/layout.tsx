@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Suspense } from 'react';
 import Loader from '@/components/Loader/Loader';
+import Header from '../components/Header/Header';
 import './globals.css';
 
 const geistSans = Geist({
@@ -27,7 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Suspense fallback={<Loader />}>{children}</Suspense>
+        <Suspense fallback={<Loader />}>
+          <Header />
+          {children}
+        </Suspense>
       </body>
     </html>
   );
