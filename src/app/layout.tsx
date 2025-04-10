@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import Loader from '@/components/Loader/Loader';
 import Header from '../components/Header/Header';
 import './globals.css';
+import Container from '../components/Container/Container';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,7 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Suspense fallback={<Loader />}>
           <Header />
-          {children}
+          <Container>{children}</Container>
         </Suspense>
       </body>
     </html>
