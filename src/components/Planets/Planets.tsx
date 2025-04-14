@@ -12,13 +12,19 @@ type Props = {
     relic: number;
     amount: number;
   }[];
+  members: {
+    nickname: string;
+    unit: string;
+    relic: number;
+  }[];
 };
 
-export default function Planets({ units }: Props) {
+export default function Planets({ units, members }: Props) {
   const searchParams = useSearchParams();
   const planet1 = searchParams.get('planet1');
   const planet2 = searchParams.get('planet2');
   const planet3 = searchParams.get('planet3');
+  console.log(members);
 
   const filteredUnits = useMemo(
     () =>
@@ -45,8 +51,9 @@ export default function Planets({ units }: Props) {
         <thead>
           <tr>
             <th className={`${s.cell} ${s.th}`}>Unit name</th>
-            <th className={`${s.cell} ${s.th}`}>Amount</th>
             <th className={`${s.cell} ${s.th}`}>Relic</th>
+            <th className={`${s.cell} ${s.th}`}>Amount</th>
+            <th className={`${s.cell} ${s.th}`}>We have</th>
           </tr>
         </thead>
         {convergedUnitsArr.map(
@@ -64,8 +71,15 @@ export default function Planets({ units }: Props) {
                     {name}
                   </Link>
                 </td>
-                <td className={s.cell}>{amount}</td>
                 <td className={s.cell}>{relic}</td>
+                <td className={s.cell}>{amount}</td>
+                <td className={s.cell}>
+                  {
+                    members.filter(
+                      member => member.relic >= relic && member.unit === name,
+                    ).length
+                  }
+                </td>
               </tr>
               {!isSameRelic &&
                 differentRelic.map(unit => (
@@ -81,8 +95,16 @@ export default function Planets({ units }: Props) {
                         {name}
                       </Link>
                     </td>
-                    <td className={s.cell}>{unit.amount}</td>
                     <td className={s.cell}>{unit.relic}</td>
+                    <td className={s.cell}>{unit.amount}</td>
+                    <td className={s.cell}>
+                      {
+                        members.filter(
+                          member =>
+                            member.relic >= unit.relic && member.unit === name,
+                        ).length
+                      }
+                    </td>
                   </tr>
                 ))}
             </tbody>
