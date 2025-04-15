@@ -24,7 +24,6 @@ export default function Planets({ units, members }: Props) {
   const planet1 = searchParams.get('planet1');
   const planet2 = searchParams.get('planet2');
   const planet3 = searchParams.get('planet3');
-  console.log(members);
 
   const filteredUnits = useMemo(
     () =>
